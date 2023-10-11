@@ -1,13 +1,12 @@
 package tn.esprit.spring.DAO.Entities;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "Universite")
+@Data
 public class Universite {
 
     @Id
@@ -19,4 +18,7 @@ public class Universite {
 
     @Column(name="adress")
     private String adress;
+
+    @OneToOne
+    private Foyer foyer;
 }

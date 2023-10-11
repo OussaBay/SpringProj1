@@ -1,13 +1,15 @@
 package tn.esprit.spring.DAO.Entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Foyer")
-public class Foyer {
+@Data
+public class Foyer implements Serializable {
 
     @Id
 
@@ -18,4 +20,7 @@ public class Foyer {
 
     @Column(name="capaciteFoyer")
     private long capaciteFoyer;
+
+    @OneToMany ( cascade = CascadeType.ALL)
+    private Set<Bloc> blocs;
 }
